@@ -10,6 +10,7 @@
 
 const char * g_log_hex_digits = "0123456789ABCDEF";
 
+uint8_t        g_segger_init_flag = 0;
 uint32_t       g_log_dbg_msk = LOG_MSK_DEFAULT;
 int32_t        g_log_dbg_lvl = LOG_LEVEL_DEFAULT;
 log_callback_t m_log_callback = LOG_CALLBACK_DEFAULT;
@@ -50,6 +51,12 @@ void log_callback_rtt(uint32_t dbg_level, const char * p_filename, uint16_t line
  */
 void log_init(uint32_t mask, uint32_t level, log_callback_t callback)
 {
+    if(g_segger_init_flag == 0)
+    {
+        SEGGER_RTT_Init();
+        g_segger_init_flag = 1;
+    }
+    
     g_log_dbg_msk = mask;
     g_log_dbg_lvl = level;
 
@@ -101,5 +108,4 @@ void log_vprintf(uint32_t dbg_level, const char * p_filename, uint16_t line,
         m_log_callback(dbg_level, p_filename, line, timestamp, format, arguments);
     }
 }
-
 

@@ -129,31 +129,43 @@ void StartDefaultTask(void const * argument)
    	__LOG(LOG_SRC_APP_1, LOG_LEVEL_INFO, "----- App 1 LOG : LOG_LEVEL_INFO !-----\n");  
    	__LOG(LOG_SRC_APP_2, LOG_LEVEL_INFO, "----- App 2 LOG : LOG_LEVEL_INFO !-----\n");  
    	__LOG(LOG_SRC_APP_3, LOG_LEVEL_INFO, "----- App 3 LOG : LOG_LEVEL_INFO !-----\n");  
+    
+    vTaskDelay(1000);
    	
    	__LOG(LOG_SRC_APP_1, LOG_LEVEL_ASSERT, "----- App 1 LOG : LOG_LEVEL_ASSERT !-----\n");  
    	__LOG(LOG_SRC_APP_2, LOG_LEVEL_ASSERT, "----- App 2 LOG : LOG_LEVEL_ASSERT !-----\n");  
    	__LOG(LOG_SRC_APP_3, LOG_LEVEL_ASSERT, "----- App 3 LOG : LOG_LEVEL_ASSERT !-----\n");  
    	
+    vTaskDelay(1000);
+
    	__LOG(LOG_SRC_APP_1, EVT_LEVEL_DATA, "----- App 1 LOG : EVT_LEVEL_DATA !-----\n");  
    	__LOG(LOG_SRC_APP_2, EVT_LEVEL_DATA, "----- App 2 LOG : EVT_LEVEL_DATA !-----\n");  
    	__LOG(LOG_SRC_APP_3, EVT_LEVEL_DATA, "----- App 3 LOG : EVT_LEVEL_DATA !-----\n");  
+
+    vTaskDelay(1000);
 
     __LOG_INIT(LOG_SRC_APP_1 | LOG_SRC_APP_2 | LOG_SRC_APP_3 , EVT_LEVEL_DATA, LOG_CALLBACK_DEFAULT);  
  	__LOG(LOG_SRC_APP_1, LOG_LEVEL_INFO, "----- Demo B Start !-----\n");    
 
-   	__LOG(LOG_SRC_APP_1, LOG_LEVEL_INFO, "----- App 1 LOG : LOG_LEVEL_INFO !-----\n");  
+    __LOG(LOG_SRC_APP_1, LOG_LEVEL_INFO, "----- App 1 LOG : LOG_LEVEL_INFO !-----\n");  
    	__LOG(LOG_SRC_APP_2, LOG_LEVEL_INFO, "----- App 2 LOG : LOG_LEVEL_INFO !-----\n");  
    	__LOG(LOG_SRC_APP_3, LOG_LEVEL_INFO, "----- App 3 LOG : LOG_LEVEL_INFO !-----\n");  
    	
-   	__LOG(LOG_SRC_APP_1, LOG_LEVEL_ASSERT, "----- App 1 LOG : LOG_LEVEL_ASSERT !-----\n");  
+    vTaskDelay(1000);
+
+    __LOG(LOG_SRC_APP_1, LOG_LEVEL_ASSERT, "----- App 1 LOG : LOG_LEVEL_ASSERT !-----\n");  
    	__LOG(LOG_SRC_APP_2, LOG_LEVEL_ASSERT, "----- App 2 LOG : LOG_LEVEL_ASSERT !-----\n");  
    	__LOG(LOG_SRC_APP_3, LOG_LEVEL_ASSERT, "----- App 3 LOG : LOG_LEVEL_ASSERT !-----\n");  
    	
-   	__LOG(LOG_SRC_APP_1, EVT_LEVEL_DATA, "----- App 1 LOG : EVT_LEVEL_DATA !-----\n");  
+    vTaskDelay(1000);
+
+    __LOG(LOG_SRC_APP_1, EVT_LEVEL_DATA, "----- App 1 LOG : EVT_LEVEL_DATA !-----\n");  
    	__LOG(LOG_SRC_APP_2, EVT_LEVEL_DATA, "----- App 2 LOG : EVT_LEVEL_DATA !-----\n");  
    	__LOG(LOG_SRC_APP_3, EVT_LEVEL_DATA, "----- App 3 LOG : EVT_LEVEL_DATA !-----\n");  
     
- 	__LOG(LOG_SRC_APP_1, LOG_LEVEL_INFO, "----- Demo Array Start !-----\n");   
+    vTaskDelay(1000);
+
+    __LOG(LOG_SRC_APP_1, LOG_LEVEL_INFO, "----- Demo Array Start !-----\n");   
     
     uint8_t array[10] = {1,2,3,4,5,6,7,8,9,10};
    	__LOG_XB(LOG_SRC_APP_1, EVT_LEVEL_DATA, "Array = \n", array, sizeof(array));  
