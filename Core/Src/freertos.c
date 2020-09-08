@@ -104,7 +104,7 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* definition and creation of defaultTask */
-  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
+  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 1024);
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
@@ -131,14 +131,14 @@ void StartDefaultTask(void const * argument)
    	__LOG(LOG_SRC_APP_3, LOG_LEVEL_INFO, "App 3 LOG : LOG_LEVEL_INFO !\n");  
     
    	__LOG(LOG_SRC_APP_1, LOG_LEVEL_INFO, "===\n");
-    vTaskDelay(10);
+    vTaskDelay(1000);
    	
    	__LOG(LOG_SRC_APP_1, LOG_LEVEL_ASSERT, "App 1 LOG : LOG_LEVEL_ASSERT !\n");  
    	__LOG(LOG_SRC_APP_2, LOG_LEVEL_ASSERT, "App 2 LOG : LOG_LEVEL_ASSERT !\n");  
    	__LOG(LOG_SRC_APP_3, LOG_LEVEL_ASSERT, "App 3 LOG : LOG_LEVEL_ASSERT !\n");  
    	
    	__LOG(LOG_SRC_APP_1, LOG_LEVEL_INFO, "===\n");
-    vTaskDelay(10);
+    vTaskDelay(1000);
 
    	__LOG(LOG_SRC_APP_1, EVT_LEVEL_DATA, "App 1 LOG : EVT_LEVEL_DATA !\n");  
    	__LOG(LOG_SRC_APP_2, EVT_LEVEL_DATA, "App 2 LOG : EVT_LEVEL_DATA !\n");  
@@ -146,7 +146,7 @@ void StartDefaultTask(void const * argument)
 
    	__LOG(LOG_SRC_APP_1, LOG_LEVEL_INFO, "...\n");
    	__LOG(LOG_SRC_APP_1, LOG_LEVEL_INFO, "===\n");
-    vTaskDelay(10);
+    vTaskDelay(1000);
 
     __LOG_INIT(LOG_SRC_APP_1 | LOG_SRC_APP_2 | LOG_SRC_APP_3 , EVT_LEVEL_DATA, LOG_CALLBACK_DEFAULT);  
  	__LOG(LOG_SRC_APP_1, LOG_LEVEL_INFO, "----- Demo B Start !-----\n");    
@@ -156,26 +156,26 @@ void StartDefaultTask(void const * argument)
    	__LOG(LOG_SRC_APP_3, LOG_LEVEL_INFO, "App 3 LOG : LOG_LEVEL_INFO !\n");  
    	
    	__LOG(LOG_SRC_APP_1, LOG_LEVEL_INFO, "===\n");
-    vTaskDelay(10);
+    vTaskDelay(1000);
 
     __LOG(LOG_SRC_APP_1, LOG_LEVEL_ASSERT, "App 1 LOG : LOG_LEVEL_ASSERT !\n");  
    	__LOG(LOG_SRC_APP_2, LOG_LEVEL_ASSERT, "App 2 LOG : LOG_LEVEL_ASSERT !\n");  
    	__LOG(LOG_SRC_APP_3, LOG_LEVEL_ASSERT, "App 3 LOG : LOG_LEVEL_ASSERT !\n");  
    	
    	__LOG(LOG_SRC_APP_1, LOG_LEVEL_INFO, "===\n");
-    vTaskDelay(10);
+    vTaskDelay(1000);
 
     __LOG(LOG_SRC_APP_1, EVT_LEVEL_DATA, "App 1 LOG : EVT_LEVEL_DATA !\n");  
    	__LOG(LOG_SRC_APP_2, EVT_LEVEL_DATA, "App 2 LOG : EVT_LEVEL_DATA !\n");  
    	__LOG(LOG_SRC_APP_3, EVT_LEVEL_DATA, "App 3 LOG : EVT_LEVEL_DATA !\n");  
     
    	__LOG(LOG_SRC_APP_1, LOG_LEVEL_INFO, "===\n");
-    vTaskDelay(10);
+    vTaskDelay(1000);
 
     __LOG(LOG_SRC_APP_1, LOG_LEVEL_INFO, "----- Demo Array Start !-----\n");   
     
-    uint8_t array[10] = {1,2,3,4,5,6,7,8,9,10};
-   	__LOG_XB(LOG_SRC_APP_1, EVT_LEVEL_DATA, "Array = \n", array, sizeof(array));  
+    uint8_t array[10] = {0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x0A};
+   	__LOG_XB(LOG_SRC_APP_1, EVT_LEVEL_DATA, "Array = ", array, sizeof(array));  
     
   /* Infinite loop */
   for(;;)
